@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const firebaseAdmin = require('firebase-admin');
 
 // Initialize Firebase Admin SDK with the service account
-const serviceAccount = require('./push.json');
+const serviceAccount = require('./service.json');
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
@@ -51,31 +51,7 @@ app.post('/send-notification', (req, res) => {
 });
 
 
-  // const { title, message, token } = req.body;
-
-  // if (!title || !message || !token) {
-  //   return res.status(400).send({ error: 'Title, token and message are required' });
-  // }
-
-  // const messagePayload = {
-  //   notification: {
-  //     title: title,
-  //     body: message,
-  //   },
-  //   tokens: token, // Send notification to all registered devices
-  // };
-
-  // // Send the notification using Firebase Admin SDK
-  // firebaseAdmin
-  //   .messaging()
-  //   .sendMulticast(messagePayload)
-  //   .then((response) => {
-  //     res.send({ message: `Successfully sent notification to ${response.successCount} devices` });
-  //   })
-  //   .catch((error) => {
-  //     res.status(500).send({ error: 'Failed to send notification', details: error });
-  //   });
-
+ 
 
 app.get('/get' , (req, res) => {
   try {

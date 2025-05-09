@@ -27,7 +27,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // Get the FCM token and send it to the backend
       await _sendTokenToServer();
       if (_singleToken) {
-        await _sendNotificationToBackend("Test Title", "Test Message");
+        // await _sendNotificationToBackend("Test Title", "Test Message");
       }
     } else {
       // If permission is denied, open device settings for the user to grant permission
@@ -42,33 +42,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (token != null) {
       print('FCM Token: $token');
       
-      // Send the token to your backend API
-      final response = await http.post(
-        Uri.parse('http://localhost:3000/save-token'), // Your backend URL
-        body: {'token': token},
-      );
-
-      if (response.statusCode == 200) {
-        print('Token successfully sent to server');
-      } else {
-        print('Failed to send token');
-      }
+      
     }
   }
 
-  // Function to send notification to backend when toggle is on
-  Future<void> _sendNotificationToBackend(String title, String message) async {
-    final response = await http.post(
-      Uri.parse('http://localhost:3000/send-notification'), // Your backend URL
-      body: {'title': title, 'message': message},
-    );
 
-    if (response.statusCode == 200) {
-      print('Notification sent successfully');
-    } else {
-      print('Failed to send notification');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
