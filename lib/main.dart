@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:pushnotifications/screens/homescreen.dart';
 import 'package:pushnotifications/widgets/onboarding.dart';
-import 'package:pushnotifications/screens/settings_screen.dart';
 
 void main() async {
   
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: OnboardingPage(pages: onboardingPages ),
-      home: SettingsScreen(),
+      home: HomeScreen(),
     );
   }
 }
